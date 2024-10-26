@@ -72,7 +72,7 @@ export default function Produtos({ navigation }) {
                 onPress={() => navigation.navigate('Carrinho')}
                 style={{ padding: 10, backgroundColor: 'green', alignItems: 'center', }}
             >
-                <Text style={{ color: 'white', textAlign: 'center' }}>Carrinho</Text>
+                <Text style={{ color: 'white', textAlign: 'center' }}>Ver carrinho</Text>
 
             </TouchableOpacity>
 
