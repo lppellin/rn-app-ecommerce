@@ -21,7 +21,7 @@ export default function App() {
             component={Produtos}
             options={{
               header: () => (
-                <View style={{ height: 30, }} />
+                <View style={{ height: 40, }} />
               ) // header vazio
             }}
           />
