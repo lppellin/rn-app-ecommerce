@@ -4,29 +4,38 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Produtos from './src/screens/Produtos';
 import Carrinho from './src/screens/Carrinho';
+import { CartProvider } from './src/context/CarrinhoContext';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <Stack.Navigator initialRouteName="Produtos" >
+    <CartProvider>
 
-        <Stack.Screen
-          name="Produtos"
-          component={Produtos}
-          options={{ headerShown: false }}
-        />
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        <Stack.Navigator initialRouteName="Produtos" >
 
-        <Stack.Screen
-          name="Carrinho"
-          component={Carrinho}
-          options={{ headerShown: false }}
-        />
+          <Stack.Screen
+            name="Produtos"
+            component={Produtos}
+            options={{
+              header: () => (
+                <View style={{ height: 30, }} />
+              ) // header vazio
+            }}
+          />
 
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen
+            name="Carrinho"
+            component={Carrinho}
+          />
+
+        </Stack.Navigator>
+      </NavigationContainer>
+
+    </CartProvider>
+
   );
 }
 
