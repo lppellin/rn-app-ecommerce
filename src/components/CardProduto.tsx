@@ -20,14 +20,14 @@ export default function CardProduto({ nome, foto, preco, onAddToCart }: CardProd
 
                 <View>
                     <Text style={{ fontSize: 18 }}>{nome}</Text>
-            
+
                     <Text style={{ fontSize: 16, color: 'green' }}>R$ {preco.toFixed(2)}</Text>
-            
-                    <TouchableOpacity onPress={onAddToCart} style={{ padding: 5, backgroundColor: 'blue', marginTop: 10 }}>
+
+                    <TouchableOpacity onPress={onAddToCart} style={{ padding: 5, backgroundColor: 'grey', marginTop: 10, borderRadius: 7 }}>
                         <Text style={{ color: 'white' }}>Adicionar ao carrinho</Text>
                     </TouchableOpacity>
                 </View>
-            
+
             </View>
         </View>
     );
@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 10,
         borderRadius: 15,
-        minWidth: '85%',
+        width: '85%',
         backgroundColor: 'white',
+        alignSelf: 'center',
     },
 })

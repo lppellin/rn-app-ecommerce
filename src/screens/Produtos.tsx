@@ -9,6 +9,8 @@ export default function Produtos({ navigation }) {
         { id: 2, nome: "Produto 2", foto: "https://via.placeholder.com/100", preco: 200.00 },
         { id: 3, nome: "Produto 3", foto: "https://via.placeholder.com/100", preco: 300.00 },
         { id: 4, nome: "Produto 4", foto: "https://via.placeholder.com/100", preco: 400.00 },
+        { id: 5, nome: "Produto 5", foto: "https://via.placeholder.com/100", preco: 500.00 },
+        { id: 6, nome: "Produto 6", foto: "https://via.placeholder.com/100", preco: 600.00 },
     ]);
 
     const [busca, setBusca] = useState('');
@@ -29,7 +31,7 @@ export default function Produtos({ navigation }) {
     }, [busca, produtos]);
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, }}>
             <Text style={{ fontSize: 24, textAlign: 'center' }}>Lista de Produtos</Text>
 
             <TextInput
@@ -45,27 +47,32 @@ export default function Produtos({ navigation }) {
                 }}
             />
 
-            <ScrollView>
-                {produtosFiltrados.length > 0 ? (
-                    produtosFiltrados.map(produto => (
-                        <CardProduto
-                            key={produto.id}
-                            nome={produto.nome}
-                            foto={produto.foto}
-                            preco={produto.preco}
-                            onAddToCart={() => adicionarAoCarrinho(produto)}
-                        />
-                    ))
-                ) : (
-                    <Text style={{ textAlign: 'center', marginTop: 20 }}>Nenhum produto encontrado</Text>
-                )}
-            </ScrollView>
+            <View style={{ backgroundColor: 'lightgray', flex: 1, }}>
+
+                <ScrollView>
+                    {produtosFiltrados.length > 0 ? (
+                        produtosFiltrados.map(produto => (
+                            <CardProduto
+                                key={produto.id}
+                                nome={produto.nome}
+                                foto={produto.foto}
+                                preco={produto.preco}
+                                onAddToCart={() => adicionarAoCarrinho(produto)}
+                            />
+                        ))
+                    ) : (
+                        <Text style={{ textAlign: 'center', marginTop: 20 }}>Nenhum produto encontrado</Text>
+                    )}
+                </ScrollView>
+
+            </View>
+
 
             <TouchableOpacity
                 onPress={() => navigation.navigate('Carrinho')}
-                style={{ padding: 10, backgroundColor: 'blue', alignItems: 'center', justifyContent: 'center' }}
+                style={{ padding: 10, backgroundColor: 'green', alignItems: 'center', }}
             >
-                <Text style={{ color: 'white' }}>Carrinho</Text>
+                <Text style={{ color: 'white', textAlign: 'center' }}>Carrinho</Text>
 
             </TouchableOpacity>
 
